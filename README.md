@@ -3,6 +3,8 @@
 
 Decorate you data with created/modified timestamps.
 
+![build status](https://secure.travis-ci.org/juliangruber/level-timestamps.png)](http://travis-ci.org/juliangruber/level-timestamps)
+
 ## Example
 
 ```js
