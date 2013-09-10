@@ -1,6 +1,8 @@
 
 # level-timestamps
 
+Decorate you data with created/modified timestamps.
+
 ## Example
 
 ```js
