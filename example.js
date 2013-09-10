@@ -8,8 +8,19 @@ timestamps(db);
 
 db.put('foo', { bar: 'baz' }, function(err) {
   if (err) throw err;
+
   db.get('foo', function(err, value) {
     if (err) throw err;
     console.log(value);
+
+    db.put('foo', { bar: 'boop' }, function(err) {
+      if (err) throw err;
+
+      db.get('foo', function(err, value) {
+        if (err) throw err;
+        console.log(value);
+
+      });
+    });
   });
 });

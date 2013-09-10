@@ -9,11 +9,12 @@
   "homepage": "https://github.com/juliangruber/level-timestamps",
   "main" : "index.js",
   "scripts" : {
-    "test" : "tape test/*.js"
+    "test" : "tape test.js"
   },
   "dependencies" : {},
   "devDependencies" : {
-    "tape" : "*"
+    "tape" : "1.4.x",
+    "level": "0.15.x"
   },
   "keywords": ["level","timestamps"],
   "author": {
