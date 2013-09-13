@@ -1,22 +1,25 @@
 {
-  "name" : "level-timestamps",
-  "description" : "Decorate you data with created/modified timestamps",
-  "version" : "0.0.0",
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/juliangruber/level-timestamps.git"
+  "name": "level-timestamps",
+  "description": "Decorate you data with created/modified timestamps",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/juliangruber/level-timestamps.git"
   },
   "homepage": "https://github.com/juliangruber/level-timestamps",
-  "main" : "index.js",
-  "scripts" : {
-    "test" : "tape test.js"
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
   },
-  "dependencies" : {},
-  "devDependencies" : {
-    "tape" : "1.4.x",
-    "level": "0.15.x"
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~1.1.0",
+    "level": "~0.16.0"
   },
-  "keywords": ["level","timestamps"],
+  "keywords": [
+    "level",
+    "timestamps"
+  ],
   "author": {
     "name": "Julian Gruber",
     "email": "mail@juliangruber.com",
