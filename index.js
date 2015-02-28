@@ -20,9 +20,9 @@ function timestamps(db) {
 
       fn(null, value);
     });
-  
+
   }
-  
+
   db.put = function(key, value, fn) {
     getValue(key, value, function(err, value) {
       if (err) return fn(err);
@@ -35,7 +35,7 @@ function timestamps(db) {
     function next(i) {
       var op = ops[i];
       if (!op) return write();
-      
+
       getValue(op.key, op.value, function(err, value) {
         if (err) return fn(err);
         op.value = value;
@@ -46,7 +46,7 @@ function timestamps(db) {
     next(0);
 
     function write() {
-      batch.call(db, ops);
+      batch.call(db, ops, fn);
     }
   };
 

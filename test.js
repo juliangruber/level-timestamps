@@ -28,6 +28,7 @@ test('timestamps', function(t) {
             t.ok(value.createdAt);
             t.ok(value.modifiedAt);
             t.notEqual(value.createAt, value.modifiedAt);
+            db.close();
           });
         });
       });
@@ -35,3 +36,41 @@ test('timestamps', function(t) {
   });
 });
 
+test('batch', function (t) {
+  t.plan(12);
+
+  var db = level(__dirname + '/db', {
+    valueEncoding: 'json'
+  });
+  timestamps(db);
+
+  db.createReadStream().on('data', function (item) {
+    db.del(item.key);
+  })
+  .on('end', function () {
+    var rows = [
+      {key: 'bar', value: { foo: 'bar' }, type: 'put'},
+      {key: 'baz', value: { foo: 'baz' }, type: 'put'}
+    ];
+    db.batch(rows, function (err) {
+      t.error(err);
+      db.createReadStream()
+        .on('data', function (item) {
+          t.ok(item.value.createdAt);
+          t.equal(item.value.createdAt, item.value.modifiedAt);
+        })
+        .on('end', function () {
+          db.batch(rows, function (err) {
+            t.error(err);
+            db.createReadStream()
+              .on('data', function (item) {
+                t.ok(item.value.createdAt);
+                t.ok(item.value.modifiedAt);
+                t.notEqual(item.value.createdAt, item.value.modifiedAt);
+                db.close();
+              });
+          });
+        });
+    });
+  });
+})
