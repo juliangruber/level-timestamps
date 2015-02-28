@@ -1,7 +1,7 @@
 {
   "name": "level-timestamps",
   "description": "Decorate you data with created/modified timestamps",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/juliangruber/level-timestamps.git"
