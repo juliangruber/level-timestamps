@@ -13,7 +13,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "level": "^1.5.0",
+    "level": "1.5.0",
     "tape": "^4.6.2"
   },
   "keywords": [
